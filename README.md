@@ -1,115 +1,135 @@
-# Project RPG Game dengan sistem multiplayer menggunakan UGS
-# Sistem Lobby - Host
-
 ![Banner](Documentation/Images/Banner.png)
-<br><br>
 
-###  Made with and Including Utilities for Netcode for GameObjects
-<br>
+Project RPG Game dengan sistem multiplayer menggunakan UGS
 
-[![UnityVersion](https://img.shields.io/badge/Unity%20Version:-6000.0.52f1%20LTS-57b9d3.svg?logo=unity&color=2196F3)](https://unity.com/releases/editor/whats-new/6000.0.52)
-[![NetcodeVersion](https://img.shields.io/badge/Netcode%20Version:-2.4.3-57b9d3.svg?logo=unity&color=2196F3)](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects/releases/tag/v2.4.3)
-[![LatestRelease](https://img.shields.io/badge/Latest%20Github%20Release:-v3.0.0-57b9d3.svg?logo=github&color=brightgreen)](https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop/releases/tag/v3.0.0)
-<br><br>
-
-Boss Room is a fully functional co-op multiplayer RPG made with Unity Netcode. It is an educational sample designed to showcase typical netcode [patterns](https://docs-multiplayer.unity3d.com/netcode/current/learn/bossroom/bossroom-actions/index.html) that are frequently featured in similar multiplayer games.
-<br><br>
-
-# Boss Room Sample Overview
-
-Boss Room is designed to be used in its entirety to help you explore the concepts and patterns behind a multiplayer game flow; such as character abilities, casting animations to hide latency, replicated objects, RPCs, and integration with [Multiplayer Services sessions](https://docs.unity.com/ugs/en-us/manual/mps-sdk/manual) and [Authentication](https://unity.com/products/authentication) services.
-
-You can use the project as a reference starting point for your own Unity game or use elements individually.
-<br><br>
-
----
-
-### 💡 Utilities Package
-This repository also contains a [Utilities](Packages/com.unity.multiplayer.samples.coop) package, containing reusable sample scripts. You can install it using the following manifest file entry:
-<br>
-`"com.unity.multiplayer.samples.coop": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop.git?path=/Packages/com.unity.multiplayer.samples.coop",`
-
----
+Sistem Lobby - Host
 
 
-<br>
-
-For more information on the art of Boss Room, see [ART_NOTES.md](Documentation/ART_NOTES.md).
 
 
-![](Documentation/Images/Boss.png)
-<br><br>
-  
------
-## Opening the project for the first time
 
-Once you have downloaded the project, follow the steps below to get up and running:
- - Check that you have installed the most recent [LTS editor version](https://unity.com/releases/unity-6-releases).
- 	- Include standalone support for Windows/Mac in your installation. 
- - Add the project to the _Unity Hub_ by clicking on the **Add** button and pointing it to the root folder of the downloaded project.
- 	- __Please note :__ the first time you open the project Unity will import all assets, which will take longer than usual.
+Dibuat dengan & Menyertakan Utilitas untuk Netcode for GameObjects
 
- - Hit the **Play** button. You can then host a new game or join an existing one using the in-game UI.
 
-  ![](Documentation/Images/StartupScene.png)
-<br><br><br>
 
-## Exploring the project
-BossRoom is an eight-player co-op RPG game experience, where players collaborate to fight imps, and then a boss. Players can select between classes that each have skills with didactically interesting networking characteristics. Control model is click-to-move, with skills triggered by a mouse button or hotkey.
 
-One of the eight clients acts as the host/server. That client will use a compositional approach so that its entities have both server and client components.
 
-- The game is server-authoritative, with latency-masking animations. 
-- Position updates are carried out through NetworkTransform that sync position and rotation. 
+Boss Room adalah game RPG multiplayer kooperatif yang berfungsi penuh, dibuat menggunakan Unity Netcode. Ini adalah sampel edukasi yang dirancang untuk menunjukkan pola netcode umum yang sering ditemukan pada game multiplayer serupa.
 
-Code is organized in domain-based assemblies. See the [Boss Room architecture documentation](https://docs-multiplayer.unity3d.com/netcode/current/learn/bossroom/bossroom-architecture) file for more details.
-<br><br>
 
-### Registering the project with Unity Gaming Services (UGS)
 
-Boss Room leverages several services from UGS to facilitate connectivity between players. To use these services inside your project, you must [create an organization](https://support.unity.com/hc/en-us/articles/208592876-How-do-I-create-a-new-Organization-) inside the Unity Dashboard. Otherwise, you can still use Boss Room without UGS.
-<br><br><br>
- 
-## Testing multiplayer
 
-In order to see the multiplayer functionality in action we can either run multiple instances of the game locally on your computer - using either Multiplayer Play Mode or builds - or choose to connect to a friend over the internet. See [how to test](https://docs-multiplayer.unity3d.com/netcode/current/tutorials/testing/testing_locally) for more info.
-<br><br>
 
-### Local multiplayer setup
 
-First, build an executable by clicking **'File/Build Settings'** in the menu bar, and then click **'Build'**.<br>  
-![](Documentation/Images/BuildProject.png)
+Ikhtisar Sampel Boss Room
 
-Once the build has completed you can launch several instances of the built executable in order to both host and join a game. When using several instances locally, you will have to set different profiles for each instance for authentication purposes, by using the **'Change Profile'** button. <br>  
+Boss Room dirancang untuk digunakan secara utuh guna membantu Anda menjelajahi konsep dan pola di balik alur game multiplayer; seperti kemampuan karakter, animasi casting untuk menyembunyikan latensi (latency-masking), objek yang direplikasi, RPC, serta integrasi dengan layanan Multiplayer Services sessions dan Authentication.
 
----
+Anda dapat menggunakan proyek ini sebagai titik awal referensi untuk game Unity Anda sendiri atau menggunakan elemen-elemennya secara terpisah.
 
-💡  **Mac users:** To run multiple instances of the same app, you need to use the command line. Run `open -n BossRoom.app`
 
----
 
-<br>
 
-### Multiplayer over Internet
 
-To play over internet, first build an executable that is shared between all players - as above.
 
-It is possible to connect between multiple instances of the same executable OR between executables and the editor that produced it.
+💡 Paket Utilitas
 
-Running the game over internet currently requires setting up a relay. 
-  
-  
-### Multiplayer Services Setup
- 
-- Boss Room uses the Multiplayer Services Package to integrate [Sessions](https://docs.unity.com/ugs/en-us/manual/mps-sdk/manual) for grouping and connecting players.
+Repositori ini juga berisi paket Utilities yang berisi skrip sampel yang dapat digunakan kembali. Anda dapat menginstalnya menggunakan entri file manifest berikut:
 
-- Alternatively you can use Port Forwarding. The https://portforward.com/ site has guides on how to enable port forwarding on a huge number of routers.
-- Boss Room uses `UDP` and needs a `9998` external port to be open. 
-- Make sure your host's address listens on 0.0.0.0 (127.0.0.1 is for local development only).
-<br><br><br>
 
------
 
-  
-  ![](Documentation/Images/Players.png)
 
+
+"com.unity.multiplayer.samples.coop": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop.git?path=/Packages/com.unity.multiplayer.samples.coop",
+
+Untuk informasi lebih lanjut tentang aspek seni Boss Room, lihat ART_NOTES.md.
+
+
+
+
+
+Membuka proyek untuk pertama kalinya
+
+Setelah Anda mengunduh proyek, ikuti langkah-langkah di bawah ini untuk memulai:
+
+Pastikan Anda telah menginstal versi editor LTS terbaru.
+
+Sertakan dukungan standalone untuk Windows/Mac dalam instalasi Anda.
+
+Tambahkan proyek ke Unity Hub dengan mengklik tombol Add dan arahkan ke folder root dari proyek yang telah diunduh.
+
+Catatan: Saat pertama kali membuka proyek, Unity akan mengimpor semua aset, yang akan memakan waktu lebih lama dari biasanya.
+
+Klik tombol Play. Anda kemudian dapat menjadi host untuk game baru atau bergabung dengan game yang sudah ada menggunakan antarmuka (UI) dalam game.
+
+
+
+
+
+
+
+Menjelajahi proyek
+
+BossRoom adalah pengalaman game RPG co-op delapan pemain, di mana para pemain berkolaborasi untuk melawan imp, lalu bos. Pemain dapat memilih di antara berbagai kelas yang masing-masing memiliki skill dengan karakteristik jaringan yang menarik secara didaktik. Model kontrol menggunakan click-to-move, dengan skill yang dipicu melalui tombol tetikus (mouse) atau hotkey.
+
+Salah satu dari delapan klien bertindak sebagai host/server. Klien tersebut akan menggunakan pendekatan komposisional sehingga entitasnya memiliki komponen server sekaligus klien.
+
+Game ini bersifat server-authoritative, dengan animasi penyamaran latensi (latency-masking).
+
+Pembaruan posisi dilakukan melalui NetworkTransform yang menyinkronkan posisi dan rotasi.
+
+Kode diatur dalam assembly berbasis domain. Lihat file dokumentasi arsitektur Boss Room untuk detail lebih lanjut.
+
+
+
+
+
+
+Mendaftarkan proyek dengan Unity Gaming Services (UGS)
+
+Boss Room memanfaatkan beberapa layanan dari UGS untuk memfasilitasi konektivitas antar pemain. Untuk menggunakan layanan ini di dalam proyek Anda, Anda harus membuat organisasi di dalam Unity Dashboard. Jika tidak, Anda tetap dapat menggunakan Boss Room tanpa UGS.
+
+
+
+
+
+
+
+Pengujian Multiplayer
+
+Untuk melihat fungsi multiplayer beraksi, kita dapat menjalankan beberapa instans game secara lokal di komputer Anda — menggunakan Multiplayer Play Mode atau build — atau memilih untuk terhubung dengan teman melalui internet. Lihat cara menguji untuk info lebih lanjut.
+
+
+
+
+
+
+Pengaturan Multiplayer Lokal
+
+Pertama, buat sebuah executable dengan mengklik 'File/Build Settings' di menu bar, lalu klik 'Build'.
+
+
+
+Setelah build selesai, Anda dapat meluncurkan beberapa instans dari executable yang telah dibuat untuk menjadi host sekaligus bergabung ke dalam game. Saat menggunakan beberapa instans secara lokal, Anda harus menyetel profil yang berbeda untuk setiap instans demi keperluan autentikasi, dengan menggunakan tombol 'Change Profile'. 
+
+
+
+💡 Pengguna Mac: Untuk menjalankan beberapa instans dari aplikasi yang sama, Anda perlu menggunakan baris perintah (command line). Jalankan open -n BossRoom.app
+
+Multiplayer Melalui Internet
+
+Untuk bermain melalui internet, buatlah terlebih dahulu executable yang dibagikan ke semua pemain — seperti di atas.
+
+Dimungkinkan untuk terhubung antara beberapa instans dari executable yang sama ATAU antara executable dan editor yang membuatnya.
+
+Menjalankan game melalui internet saat ini memerlukan pengaturan relay.
+
+Pengaturan Layanan Multiplayer (Multiplayer Services Setup)
+
+Boss Room menggunakan Paket Layanan Multiplayer (Multiplayer Services Package) untuk mengintegrasikan Sessions untuk mengelompokkan dan menghubungkan pemain.
+
+Sebagai alternatif, Anda dapat menggunakan Port Forwarding. Situs https://portforward.com/ memiliki panduan tentang cara mengaktifkan port forwarding pada sejumlah besar router.
+
+Boss Room menggunakan UDP dan membutuhkan port eksternal 9998 agar terbuka.
+
+Pastikan alamat host Anda mendengarkan pada 0.0.0.0 (127.0.0.1 hanya untuk pengembangan lokal).
