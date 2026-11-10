@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Unity.BossRoom.Gameplay.Configuration
 {
+    /// <summary>
+    /// This ScriptableObject will be the container for all possible Avatars inside BossRoom.
+    /// <see cref="Avatar"/>
+    /// </summary>
     [CreateAssetMenu]
     public sealed class AvatarRegistry : ScriptableObject
     {

@@ -6,6 +6,6 @@ namespace Unity.BossRoom.Gameplay.Actions
     public enum BlockingModeType
     {
         EntireDuration,
-        OnlyDuringExecution,
+        OnlyDuringExecTime,
     }
 }
